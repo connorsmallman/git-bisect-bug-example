@@ -6,13 +6,14 @@ function getRandomBreakingBadQuote() {
   );
 }
 
-function getBreakingBadQuoteByAuthor(author) {
-  return fetch(`https://www.breakingbadapi.com/api/quote?${encodeURI(author)}`).then(
+function getRandomBreakingBadQuoteByAuthor(author) {
+  const param = author.replace(' ', '+');
+  return fetch(`https://www.breakingbadapi.com/api/quote/random?author=${param}`).then(
     response => response.json()
   );
 }
 
 module.exports = {
   getRandomBreakingBadQuote,
-  getBreakingBadQuoteByAuthor,
+  getRandomBreakingBadQuoteByAuthor,
 };
